@@ -1,8 +1,8 @@
 namespace proj_event_app
 {
-    public partial class Form1 : Form
+    public partial class fichier_principal : Form
     {
-        public Form1()
+        public fichier_principal()
         {
             InitializeComponent();
         }

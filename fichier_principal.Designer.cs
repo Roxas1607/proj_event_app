@@ -1,6 +1,6 @@
 ﻿namespace proj_event_app
 {
-    partial class Form1
+    partial class fichier_principal
     {
         /// <summary>
         ///  Required designer variable.
