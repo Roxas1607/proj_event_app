@@ -71,6 +71,7 @@
             barreDeProgressionMenuItem.Name = "barreDeProgressionMenuItem";
             barreDeProgressionMenuItem.Size = new Size(229, 26);
             barreDeProgressionMenuItem.Text = "Barre de Progression";
+            barreDeProgressionMenuItem.Click += barreDeProgressionMenuItem_Click;
             // 
             // toolStripSeparator2
             // 

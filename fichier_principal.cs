@@ -39,5 +39,12 @@ namespace proj_event_app
         {
             default_message();
         }
+
+        private void barreDeProgressionMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Form ecran_progression = new ecranProgession();
+            ecran_progression.ShowDialog();
+        }
     }
 }
