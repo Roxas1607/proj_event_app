@@ -29,91 +29,95 @@
         private void InitializeComponent()
         {
             menuStrip1 = new MenuStrip();
-            controleToolStripMenuItem = new ToolStripMenuItem();
-            ListeToolStripMenuItem = new ToolStripMenuItem();
-            barreDeProgressionToolStripMenuItem = new ToolStripMenuItem();
+            controleMenuItem = new ToolStripMenuItem();
+            ListeMenuItem = new ToolStripMenuItem();
+            barreDeProgressionMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
-            quitterToolStripMenuItem = new ToolStripMenuItem();
-            applicationToolStripMenuItem = new ToolStripMenuItem();
-            editeurToolStripMenuItem = new ToolStripMenuItem();
-            permutationToolStripMenuItem = new ToolStripMenuItem();
-            aideToolStripMenuItem = new ToolStripMenuItem();
-            aProposToolStripMenuItem1 = new ToolStripMenuItem();
+            quitterMenuItem = new ToolStripMenuItem();
+            applicationMenuItem = new ToolStripMenuItem();
+            editeurMenuItem = new ToolStripMenuItem();
+            permutationMenuItem = new ToolStripMenuItem();
+            aideMenuItem = new ToolStripMenuItem();
+            aProposMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { controleToolStripMenuItem, applicationToolStripMenuItem, aideToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { controleMenuItem, applicationMenuItem, aideMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // controleToolStripMenuItem
+            // controleMenuItem
             // 
-            controleToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ListeToolStripMenuItem, barreDeProgressionToolStripMenuItem, toolStripSeparator2, quitterToolStripMenuItem });
-            controleToolStripMenuItem.Name = "controleToolStripMenuItem";
-            controleToolStripMenuItem.Size = new Size(80, 24);
-            controleToolStripMenuItem.Text = "Controle";
+            controleMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ListeMenuItem, barreDeProgressionMenuItem, toolStripSeparator2, quitterMenuItem });
+            controleMenuItem.Name = "controleMenuItem";
+            controleMenuItem.Size = new Size(80, 24);
+            controleMenuItem.Text = "Controle";
             // 
-            // ListeToolStripMenuItem
+            // ListeMenuItem
             // 
-            ListeToolStripMenuItem.Name = "ListeToolStripMenuItem";
-            ListeToolStripMenuItem.Size = new Size(229, 26);
-            ListeToolStripMenuItem.Text = "Liste";
+            ListeMenuItem.Name = "ListeMenuItem";
+            ListeMenuItem.Size = new Size(229, 26);
+            ListeMenuItem.Text = "Liste";
+            ListeMenuItem.Click += ListeMenuItem_Click;
             // 
-            // barreDeProgressionToolStripMenuItem
+            // barreDeProgressionMenuItem
             // 
-            barreDeProgressionToolStripMenuItem.Name = "barreDeProgressionToolStripMenuItem";
-            barreDeProgressionToolStripMenuItem.Size = new Size(229, 26);
-            barreDeProgressionToolStripMenuItem.Text = "Barre de Progression";
+            barreDeProgressionMenuItem.Name = "barreDeProgressionMenuItem";
+            barreDeProgressionMenuItem.Size = new Size(229, 26);
+            barreDeProgressionMenuItem.Text = "Barre de Progression";
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(226, 6);
             // 
-            // quitterToolStripMenuItem
+            // quitterMenuItem
             // 
-            quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            quitterToolStripMenuItem.Size = new Size(229, 26);
-            quitterToolStripMenuItem.Text = "Quitter ";
+            quitterMenuItem.Name = "quitterMenuItem";
+            quitterMenuItem.ShortcutKeyDisplayString = "Alt +q";
+            quitterMenuItem.Size = new Size(229, 26);
+            quitterMenuItem.Text = "Quitter ";
             // 
-            // applicationToolStripMenuItem
+            // applicationMenuItem
             // 
-            applicationToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurToolStripMenuItem, permutationToolStripMenuItem });
-            applicationToolStripMenuItem.Name = "applicationToolStripMenuItem";
-            applicationToolStripMenuItem.Size = new Size(100, 24);
-            applicationToolStripMenuItem.Text = "Application";
+            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem });
+            applicationMenuItem.Name = "applicationMenuItem";
+            applicationMenuItem.Size = new Size(100, 24);
+            applicationMenuItem.Text = "Application";
             // 
-            // editeurToolStripMenuItem
+            // editeurMenuItem
             // 
-            editeurToolStripMenuItem.Name = "editeurToolStripMenuItem";
-            editeurToolStripMenuItem.Size = new Size(224, 26);
-            editeurToolStripMenuItem.Text = "Editeur";
+            editeurMenuItem.Name = "editeurMenuItem";
+            editeurMenuItem.Size = new Size(224, 26);
+            editeurMenuItem.Text = "Editeur";
+            editeurMenuItem.Click += editeurMenuItem_Click;
             // 
-            // permutationToolStripMenuItem
+            // permutationMenuItem
             // 
-            permutationToolStripMenuItem.Name = "permutationToolStripMenuItem";
-            permutationToolStripMenuItem.Size = new Size(224, 26);
-            permutationToolStripMenuItem.Text = "permutation";
-            permutationToolStripMenuItem.Click += permutationToolStripMenuItem_Click;
+            permutationMenuItem.Name = "permutationMenuItem";
+            permutationMenuItem.Size = new Size(224, 26);
+            permutationMenuItem.Text = "permutation";
+            permutationMenuItem.Click += permutationMenuItem_Click;
             // 
-            // aideToolStripMenuItem
+            // aideMenuItem
             // 
-            aideToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aProposToolStripMenuItem1 });
-            aideToolStripMenuItem.Name = "aideToolStripMenuItem";
-            aideToolStripMenuItem.Size = new Size(54, 24);
-            aideToolStripMenuItem.Text = "Aide";
+            aideMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aProposMenuItem1 });
+            aideMenuItem.Name = "aideMenuItem";
+            aideMenuItem.Size = new Size(54, 24);
+            aideMenuItem.Text = "Aide";
             // 
-            // aProposToolStripMenuItem1
+            // aProposMenuItem1
             // 
-            aProposToolStripMenuItem1.Name = "aProposToolStripMenuItem1";
-            aProposToolStripMenuItem1.Size = new Size(153, 26);
-            aProposToolStripMenuItem1.Text = "A propos";
+            aProposMenuItem1.Name = "aProposMenuItem1";
+            aProposMenuItem1.Size = new Size(153, 26);
+            aProposMenuItem1.Text = "A propos";
+            aProposMenuItem1.Click += aProposMenuItem1_Click;
             // 
             // fichier_principal
             // 
@@ -133,15 +137,15 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem controleToolStripMenuItem;
-        private ToolStripMenuItem applicationToolStripMenuItem;
-        private ToolStripMenuItem ListeToolStripMenuItem;
-        private ToolStripMenuItem barreDeProgressionToolStripMenuItem;
-        private ToolStripMenuItem quitterToolStripMenuItem;
-        private ToolStripMenuItem aideToolStripMenuItem;
-        private ToolStripMenuItem editeurToolStripMenuItem;
-        private ToolStripMenuItem aProposToolStripMenuItem1;
+        private ToolStripMenuItem controleMenuItem;
+        private ToolStripMenuItem applicationMenuItem;
+        private ToolStripMenuItem ListeMenuItem;
+        private ToolStripMenuItem barreDeProgressionMenuItem;
+        private ToolStripMenuItem quitterMenuItem;
+        private ToolStripMenuItem aideMenuItem;
+        private ToolStripMenuItem editeurMenuItem;
+        private ToolStripMenuItem aProposMenuItem1;
         private ToolStripSeparator toolStripSeparator2;
-        private ToolStripMenuItem permutationToolStripMenuItem;
+        private ToolStripMenuItem permutationMenuItem;
     }
 }

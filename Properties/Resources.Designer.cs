@@ -73,6 +73,16 @@ namespace proj_event_app.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap téléchargement {
+            get {
+                object obj = ResourceManager.GetObject("téléchargement", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap vaisseau_alien {
             get {
                 object obj = ResourceManager.GetObject("vaisseau-alien", resourceCulture);
