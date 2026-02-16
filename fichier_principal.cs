@@ -32,7 +32,8 @@ namespace proj_event_app
 
         private void ListeMenuItem_Click(object sender, EventArgs e)
         {
-            default_message();
+            Form ecran_liste = new ecranListe();
+            ecran_liste.ShowDialog();
         }
 
         private void editeurMenuItem_Click(object sender, EventArgs e)
