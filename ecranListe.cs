@@ -20,9 +20,9 @@ namespace proj_event_app
         private const int smEcrire = 0x019A;
 
 
-        string NomFichier = @"C:\";
+        string NomFichier = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) );
         
-        int numero = 0;
+        int numero = 1;
         bool fichierModifie = false;
         void Activer(bool activer)
         {
@@ -33,6 +33,31 @@ namespace proj_event_app
             bSupprimer.Enabled = activer;
             gbDetail.Enabled = !activer;
             bModifier.Enabled = activer;
+        }
+
+        // utiliser le lbPersonne.Sorted = true faisait apparaitre des bugs visuelle ;  
+        private void trie()
+        {
+          
+            var temp = new List<(string Texte, int Data)>();
+            for (int i = 0; i < lbPersonne.Items.Count; i++)
+            {
+                string texte = lbPersonne.Items[i].ToString();
+                int data = SendMessage(lbPersonne.Handle, smLire,i,0);
+                temp.Add((texte, data));
+            }
+
+     
+            temp.Sort((a, b) => string.Compare(a.Texte, b.Texte, StringComparison.CurrentCultureIgnoreCase));
+
+          
+            lbPersonne.Items.Clear();
+
+            for (int i = 0; i < temp.Count; i++)
+            {
+                int index = lbPersonne.Items.Add(temp[i].Texte);
+                SendMessage(lbPersonne.Handle, smEcrire, index, temp[i].Data);
+            }
         }
 
         public ecranListe()
@@ -57,9 +82,19 @@ namespace proj_event_app
 
             if (lbPersonne.SelectedIndex != -1)
             {
+                int numeroCache = SendMessage(lbPersonne.Handle, smEcrire, lbPersonne.SelectedIndex, 0);
                 lbPersonne.Items.RemoveAt(lbPersonne.SelectedIndex);
+                for (int i = 0; i < lbPersonne.Items.Count; i++)
+                {
+                    int n = SendMessage(lbPersonne.Handle, smLire, i, 0);
 
+                    if (n > numeroCache)
+                        SendMessage(lbPersonne.Handle, smEcrire, i,(n - 1));
+                }
             }
+            
+
+            
         }
 
         private void bConfirmer_Click(object sender, EventArgs e)
@@ -94,8 +129,10 @@ namespace proj_event_app
                 fichierModifie = false;
             }
             
-           
-            lbPersonne.Sorted = true;
+            trie();
+            
+
+
 
 
         }
@@ -114,11 +151,29 @@ namespace proj_event_app
                 lbPersonne.Sorted = false;
                 foreach (string ligne in File.ReadAllLines(NomFichier))
                 {
-                    lbPersonne.Items.Add(ligne);
+
+                    if (ligne.Contains("#"))
+                    {
+                        string[] parts = ligne.Split('#');
+                        string texte = parts[0].Trim();
+                        int numeroCache = int.Parse(parts[1]);
+
+                        int index = lbPersonne.Items.Add(texte);
+                        SendMessage(lbPersonne.Handle, smEcrire, index, numeroCache);
+                    }
+                    else
+                    {
+                        lbPersonne.Items.Add(ligne);
+                    }
+
+                   
+
+              
                 }
+                trie();
+            
             }
 
-            lbPersonne.Sorted = true;
         }
 
         private void bEnregistrer_Click(object sender, EventArgs e)
@@ -131,10 +186,12 @@ namespace proj_event_app
 
                 using (StreamWriter sw = new StreamWriter(NomFichier))
                 {
-                    foreach (var item in lbPersonne.Items)
+                    for( int i =0;i < lbPersonne.Items.Count; i++)
                     {
-                        sw.WriteLine(item.ToString());
-                    }
+                        int numeroCachee = SendMessage(lbPersonne.Handle, smLire, i, 0);
+                        sw.WriteLine(lbPersonne.Items[i] + "#" + numeroCachee) ;
+                       
+                    } 
                 }
             }
         }
