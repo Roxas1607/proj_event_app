@@ -38,7 +38,8 @@ namespace proj_event_app
 
         private void editeurMenuItem_Click(object sender, EventArgs e)
         {
-            default_message();
+            Form ecran_editeur = new ecranEditeur();
+            ecran_editeur.ShowDialog();
         }
 
         private void barreDeProgressionMenuItem_Click(object sender, EventArgs e)
