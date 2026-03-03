@@ -48,5 +48,11 @@ namespace proj_event_app
             Form ecran_progression = new ecranProgession();
             ecran_progression.ShowDialog();
         }
+
+        private void spirographeMenuItem_Click(object sender, EventArgs e)
+        {
+            Form ecran_spirographe = new ecranSpirographe();
+            ecran_spirographe.ShowDialog();
+        }
     }
 }

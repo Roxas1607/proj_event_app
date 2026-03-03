@@ -39,6 +39,7 @@
             permutationMenuItem = new ToolStripMenuItem();
             aideMenuItem = new ToolStripMenuItem();
             aProposMenuItem1 = new ToolStripMenuItem();
+            spirographeMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -87,7 +88,7 @@
             // 
             // applicationMenuItem
             // 
-            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem });
+            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem, spirographeMenuItem });
             applicationMenuItem.Name = "applicationMenuItem";
             applicationMenuItem.Size = new Size(100, 24);
             applicationMenuItem.Text = "Application";
@@ -120,6 +121,13 @@
             aProposMenuItem1.Text = "A propos";
             aProposMenuItem1.Click += aProposMenuItem1_Click;
             // 
+            // spirographeMenuItem
+            // 
+            spirographeMenuItem.Name = "spirographeMenuItem";
+            spirographeMenuItem.Size = new Size(224, 26);
+            spirographeMenuItem.Text = "Spirographe";
+            spirographeMenuItem.Click += spirographeMenuItem_Click;
+            // 
             // fichier_principal
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -148,5 +156,6 @@
         private ToolStripMenuItem aProposMenuItem1;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem permutationMenuItem;
+        private ToolStripMenuItem spirographeMenuItem;
     }
 }
