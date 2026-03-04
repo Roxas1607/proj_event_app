@@ -37,9 +37,10 @@
             applicationMenuItem = new ToolStripMenuItem();
             editeurMenuItem = new ToolStripMenuItem();
             permutationMenuItem = new ToolStripMenuItem();
+            spirographeMenuItem = new ToolStripMenuItem();
             aideMenuItem = new ToolStripMenuItem();
             aProposMenuItem1 = new ToolStripMenuItem();
-            spirographeMenuItem = new ToolStripMenuItem();
+            sourisClavierMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -88,7 +89,7 @@
             // 
             // applicationMenuItem
             // 
-            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem, spirographeMenuItem });
+            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem, spirographeMenuItem, sourisClavierMenuItem });
             applicationMenuItem.Name = "applicationMenuItem";
             applicationMenuItem.Size = new Size(100, 24);
             applicationMenuItem.Text = "Application";
@@ -107,6 +108,13 @@
             permutationMenuItem.Text = "permutation";
             permutationMenuItem.Click += permutationMenuItem_Click;
             // 
+            // spirographeMenuItem
+            // 
+            spirographeMenuItem.Name = "spirographeMenuItem";
+            spirographeMenuItem.Size = new Size(224, 26);
+            spirographeMenuItem.Text = "Spirographe";
+            spirographeMenuItem.Click += spirographeMenuItem_Click;
+            // 
             // aideMenuItem
             // 
             aideMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aProposMenuItem1 });
@@ -121,12 +129,12 @@
             aProposMenuItem1.Text = "A propos";
             aProposMenuItem1.Click += aProposMenuItem1_Click;
             // 
-            // spirographeMenuItem
+            // sourisClavierMenuItem
             // 
-            spirographeMenuItem.Name = "spirographeMenuItem";
-            spirographeMenuItem.Size = new Size(224, 26);
-            spirographeMenuItem.Text = "Spirographe";
-            spirographeMenuItem.Click += spirographeMenuItem_Click;
+            sourisClavierMenuItem.Name = "sourisClavierMenuItem";
+            sourisClavierMenuItem.Size = new Size(224, 26);
+            sourisClavierMenuItem.Text = "SourisClavier";
+            sourisClavierMenuItem.Click += sourisClavierMenuItem_Click;
             // 
             // fichier_principal
             // 
@@ -157,5 +165,6 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem permutationMenuItem;
         private ToolStripMenuItem spirographeMenuItem;
+        private ToolStripMenuItem sourisClavierMenuItem;
     }
 }

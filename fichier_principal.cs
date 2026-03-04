@@ -54,5 +54,11 @@ namespace proj_event_app
             Form ecran_spirographe = new ecranSpirographe();
             ecran_spirographe.ShowDialog();
         }
+
+        private void sourisClavierMenuItem_Click(object sender, EventArgs e)
+        {
+            Form ecran_SourisClavier = new ecranSourisClavier();
+            ecran_SourisClavier.ShowDialog();
+        }
     }
 }
