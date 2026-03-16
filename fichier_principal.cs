@@ -60,5 +60,11 @@ namespace proj_event_app
             Form ecran_SourisClavier = new ecranSourisClavier();
             ecran_SourisClavier.ShowDialog();
         }
+
+        private void explorateurWindowsMenuItem_Click(object sender, EventArgs e)
+        {
+            Form ecran_explorateur = new ecranExplorateur();
+            ecran_explorateur.ShowDialog();
+        }
     }
 }

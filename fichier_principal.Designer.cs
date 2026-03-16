@@ -38,9 +38,10 @@
             editeurMenuItem = new ToolStripMenuItem();
             permutationMenuItem = new ToolStripMenuItem();
             spirographeMenuItem = new ToolStripMenuItem();
+            sourisClavierMenuItem = new ToolStripMenuItem();
             aideMenuItem = new ToolStripMenuItem();
             aProposMenuItem1 = new ToolStripMenuItem();
-            sourisClavierMenuItem = new ToolStripMenuItem();
+            explorateurWindowsMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -89,7 +90,7 @@
             // 
             // applicationMenuItem
             // 
-            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem, spirographeMenuItem, sourisClavierMenuItem });
+            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem, spirographeMenuItem, sourisClavierMenuItem, explorateurWindowsMenuItem });
             applicationMenuItem.Name = "applicationMenuItem";
             applicationMenuItem.Size = new Size(100, 24);
             applicationMenuItem.Text = "Application";
@@ -97,23 +98,30 @@
             // editeurMenuItem
             // 
             editeurMenuItem.Name = "editeurMenuItem";
-            editeurMenuItem.Size = new Size(224, 26);
+            editeurMenuItem.Size = new Size(233, 26);
             editeurMenuItem.Text = "Editeur";
             editeurMenuItem.Click += editeurMenuItem_Click;
             // 
             // permutationMenuItem
             // 
             permutationMenuItem.Name = "permutationMenuItem";
-            permutationMenuItem.Size = new Size(224, 26);
+            permutationMenuItem.Size = new Size(233, 26);
             permutationMenuItem.Text = "permutation";
             permutationMenuItem.Click += permutationMenuItem_Click;
             // 
             // spirographeMenuItem
             // 
             spirographeMenuItem.Name = "spirographeMenuItem";
-            spirographeMenuItem.Size = new Size(224, 26);
+            spirographeMenuItem.Size = new Size(233, 26);
             spirographeMenuItem.Text = "Spirographe";
             spirographeMenuItem.Click += spirographeMenuItem_Click;
+            // 
+            // sourisClavierMenuItem
+            // 
+            sourisClavierMenuItem.Name = "sourisClavierMenuItem";
+            sourisClavierMenuItem.Size = new Size(233, 26);
+            sourisClavierMenuItem.Text = "SourisClavier";
+            sourisClavierMenuItem.Click += sourisClavierMenuItem_Click;
             // 
             // aideMenuItem
             // 
@@ -129,12 +137,12 @@
             aProposMenuItem1.Text = "A propos";
             aProposMenuItem1.Click += aProposMenuItem1_Click;
             // 
-            // sourisClavierMenuItem
+            // explorateurWindowsMenuItem
             // 
-            sourisClavierMenuItem.Name = "sourisClavierMenuItem";
-            sourisClavierMenuItem.Size = new Size(224, 26);
-            sourisClavierMenuItem.Text = "SourisClavier";
-            sourisClavierMenuItem.Click += sourisClavierMenuItem_Click;
+            explorateurWindowsMenuItem.Name = "explorateurWindowsMenuItem";
+            explorateurWindowsMenuItem.Size = new Size(233, 26);
+            explorateurWindowsMenuItem.Text = "Explorateur Windows";
+            explorateurWindowsMenuItem.Click += explorateurWindowsMenuItem_Click;
             // 
             // fichier_principal
             // 
@@ -166,5 +174,6 @@
         private ToolStripMenuItem permutationMenuItem;
         private ToolStripMenuItem spirographeMenuItem;
         private ToolStripMenuItem sourisClavierMenuItem;
+        private ToolStripMenuItem explorateurWindowsMenuItem;
     }
 }
