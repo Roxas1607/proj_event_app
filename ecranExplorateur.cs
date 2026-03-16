@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
+
 namespace proj_event_app
 {
     public partial class ecranExplorateur : Form
@@ -16,113 +10,98 @@ namespace proj_event_app
         {
             InitializeComponent();
             RemplirTreeView();
+            tvRepertoire.BeforeExpand += tvRepertoire_BeforeExpand;
         }
-
-        string NomFichier(string chemin)
-        {
-            return Path.GetFileNameWithoutExtension(chemin);
-        }
-
-        void LireRepertoires(string chemin, TreeNode noeudParent)
-        {
-            if (!Directory.Exists(chemin))
-                return;
-
-            try
-            {
-                string[] repertoires = Directory.GetDirectories(chemin);
-
-                foreach (string rep in repertoires)
-                {
-                    string nom = Path.GetFileName(rep);
-
-                    TreeNode noeudRep = new TreeNode(nom);
-                    noeudParent.Nodes.Add(noeudRep);
-
-                    LireRepertoires(rep, noeudRep);
-                }
-            }
-            catch
-            {
-
-            }
-        }
-        void LireDisques()
-        {
-            string[] disques = Environment.GetLogicalDrives();
-
-            foreach (string disque in disques)
-            {
-                TreeNode noeudDisque = new TreeNode(disque);
-                tvRepertoire.Nodes.Add(noeudDisque);
-
-                LireRepertoires(disque, noeudDisque);
-            }
-        }
-
-
-
-        void LireFichiers(string chemin)
-        {
-            lvFichiers.Items.Clear();
-
-            try
-            {
-                string[] fichiers = Directory.GetFiles(chemin);
-
-                foreach (string f in fichiers)
-                {
-                    FileInfo info = new FileInfo(f);
-
-                    ListViewItem item = new ListViewItem(NomFichier(f));
-
-                    item.SubItems.Add(info.Length.ToString());
-                    item.SubItems.Add(info.CreationTime.ToString());
-                    item.SubItems.Add(info.LastWriteTime.ToString());
-
-                    lvFichiers.Items.Add(item);
-                }
-            }
-            catch
-            {
-                // ignore les erreurs d'accès
-            }
-        }
-
 
         void RemplirTreeView()
         {
             tvRepertoire.Nodes.Clear();
-            LireDisques();
+            TreeNode root = new TreeNode("Poste de travail");
+            tvRepertoire.Nodes.Add(root);
+
+            foreach (string disque in Environment.GetLogicalDrives())
+            {
+                TreeNode noeudDisque = new TreeNode(disque);
+                noeudDisque.Tag = disque;
+               
+                noeudDisque.Nodes.Add(new TreeNode("Chargement..."));
+                root.Nodes.Add(noeudDisque);
+            }
+            root.Expand();
+        }
+
+      
+        private void tvRepertoire_BeforeExpand(object sender, TreeViewCancelEventArgs e)
+        {
+            TreeNode nodeParent = e.Node;
+
+          
+            if (nodeParent.Tag != null && nodeParent.Nodes.Count > 0 && nodeParent.Nodes[0].Tag == null)
+            {
+                nodeParent.Nodes.Clear();
+                string chemin = nodeParent.Tag.ToString();
+
+                try
+                {
+                    foreach (string dir in Directory.GetDirectories(chemin))
+                    {
+                        TreeNode nodeChild = new TreeNode(Path.GetFileName(dir));
+                        nodeChild.Tag = dir;
+                       
+                        nodeChild.Nodes.Add(new TreeNode("Chargement..."));
+                        nodeParent.Nodes.Add(nodeChild);
+                    }
+                }
+                catch { /* Accès refusé sur certains dossiers système */ }
+            }
         }
 
         private void tvRepertoire_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            string chemin = e.Node.FullPath;
-
-            if (!chemin.Contains("Poste de travail"))
+            if (e.Node.Tag != null)
             {
-                LireFichiers(chemin);
+                LireFichiers(e.Node.Tag.ToString());
             }
         }
 
-        private void tsaPetitsIcones_Click(object sender, EventArgs e)
+        void LireFichiers(string chemin)
         {
-            lvFichiers.View = View.SmallIcon;
+            lvFichiers.BeginUpdate();
+            lvFichiers.Items.Clear();
+            try
+            {
+                if (Directory.Exists(chemin))
+                {
+                    foreach (string f in Directory.GetFiles(chemin))
+                    {
+                        FileInfo info = new FileInfo(f);
+                        ListViewItem item = new ListViewItem(Path.GetFileNameWithoutExtension(f));
+                        item.SubItems.Add((info.Length / 1024).ToString() + " Ko");
+                        item.SubItems.Add(info.CreationTime.ToShortDateString());
+                        item.SubItems.Add(info.LastWriteTime.ToShortDateString());
+                        lvFichiers.Items.Add(item);
+                    }
+                }
+            }
+            catch { }
+            lvFichiers.EndUpdate();
         }
 
-        private void tsaGrandesIcones_Click(object sender, EventArgs e)
-        {
+
+        private void tsaPetitsIcones_Click(object sender, EventArgs e) 
+        { 
+            lvFichiers.View = View.SmallIcon; 
+        }
+        private void tsaGrandesIcones_Click(object sender, EventArgs e) 
+        { 
             lvFichiers.View = View.LargeIcon;
         }
-
         private void tsaListe_Click(object sender, EventArgs e)
-        {
-            lvFichiers.View = View.List;
+        { 
+            lvFichiers.View = View.List; 
         }
-
-        private void tsaDetail_Click(object sender, EventArgs e)
-        {
+        private void tsaDetail_Click(object sender, EventArgs e) 
+        { 
             lvFichiers.View = View.Details;
         }
     }
