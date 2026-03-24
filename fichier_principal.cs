@@ -66,5 +66,16 @@ namespace proj_event_app
             Form ecran_explorateur = new ecranExplorateur();
             ecran_explorateur.ShowDialog();
         }
+
+        private void fichier_principal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bdDonneesMenuItem_Click(object sender, EventArgs e)
+        {
+            Form ecran_BdDirect = new  ficBbDirect();
+            ecran_BdDirect.ShowDialog();
+        }
     }
 }

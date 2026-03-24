@@ -39,9 +39,10 @@
             permutationMenuItem = new ToolStripMenuItem();
             spirographeMenuItem = new ToolStripMenuItem();
             sourisClavierMenuItem = new ToolStripMenuItem();
+            explorateurWindowsMenuItem = new ToolStripMenuItem();
             aideMenuItem = new ToolStripMenuItem();
             aProposMenuItem1 = new ToolStripMenuItem();
-            explorateurWindowsMenuItem = new ToolStripMenuItem();
+            bdDonneesMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -90,7 +91,7 @@
             // 
             // applicationMenuItem
             // 
-            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem, spirographeMenuItem, sourisClavierMenuItem, explorateurWindowsMenuItem });
+            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem, spirographeMenuItem, sourisClavierMenuItem, explorateurWindowsMenuItem, bdDonneesMenuItem });
             applicationMenuItem.Name = "applicationMenuItem";
             applicationMenuItem.Size = new Size(100, 24);
             applicationMenuItem.Text = "Application";
@@ -123,6 +124,13 @@
             sourisClavierMenuItem.Text = "SourisClavier";
             sourisClavierMenuItem.Click += sourisClavierMenuItem_Click;
             // 
+            // explorateurWindowsMenuItem
+            // 
+            explorateurWindowsMenuItem.Name = "explorateurWindowsMenuItem";
+            explorateurWindowsMenuItem.Size = new Size(233, 26);
+            explorateurWindowsMenuItem.Text = "Explorateur Windows";
+            explorateurWindowsMenuItem.Click += explorateurWindowsMenuItem_Click;
+            // 
             // aideMenuItem
             // 
             aideMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aProposMenuItem1 });
@@ -137,12 +145,12 @@
             aProposMenuItem1.Text = "A propos";
             aProposMenuItem1.Click += aProposMenuItem1_Click;
             // 
-            // explorateurWindowsMenuItem
+            // bdDonneesMenuItem
             // 
-            explorateurWindowsMenuItem.Name = "explorateurWindowsMenuItem";
-            explorateurWindowsMenuItem.Size = new Size(233, 26);
-            explorateurWindowsMenuItem.Text = "Explorateur Windows";
-            explorateurWindowsMenuItem.Click += explorateurWindowsMenuItem_Click;
+            bdDonneesMenuItem.Name = "bdDonneesMenuItem";
+            bdDonneesMenuItem.Size = new Size(233, 26);
+            bdDonneesMenuItem.Text = "Base de donnees";
+            bdDonneesMenuItem.Click += bdDonneesMenuItem_Click;
             // 
             // fichier_principal
             // 
@@ -153,6 +161,7 @@
             MainMenuStrip = menuStrip1;
             Name = "fichier_principal";
             Text = "Form1";
+            Load += fichier_principal_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -175,5 +184,6 @@
         private ToolStripMenuItem spirographeMenuItem;
         private ToolStripMenuItem sourisClavierMenuItem;
         private ToolStripMenuItem explorateurWindowsMenuItem;
+        private ToolStripMenuItem bdDonneesMenuItem;
     }
 }
