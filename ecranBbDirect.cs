@@ -25,7 +25,7 @@ namespace proj_event_app
 
         // On utilise une propriété pour recalculer le chemin proprement au besoin
         static string cheminFinal = System.IO.Path.GetFullPath(
-            System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\perso\perso.mdb")
+            System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\perso\perso.mdb")
         );
 
         // 3. Ta chaîne de connexion devient universelle

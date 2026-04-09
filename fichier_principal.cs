@@ -74,8 +74,14 @@ namespace proj_event_app
 
         private void bdDonneesMenuItem_Click(object sender, EventArgs e)
         {
-            Form ecran_BdDirect = new  ficBbDirect();
+            Form ecran_BdDirect = new ficBbDirect();
             ecran_BdDirect.ShowDialog();
+        }
+
+        private void histogrammeMenuItem_Click(object sender, EventArgs e)
+        {
+            Form ecran_histogramme = new ecranHistogramme();
+            ecran_histogramme.ShowDialog();
         }
     }
 }

@@ -40,9 +40,11 @@
             spirographeMenuItem = new ToolStripMenuItem();
             sourisClavierMenuItem = new ToolStripMenuItem();
             explorateurWindowsMenuItem = new ToolStripMenuItem();
+            bdDonneesMenuItem = new ToolStripMenuItem();
             aideMenuItem = new ToolStripMenuItem();
             aProposMenuItem1 = new ToolStripMenuItem();
-            bdDonneesMenuItem = new ToolStripMenuItem();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            histogrammeMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -91,7 +93,7 @@
             // 
             // applicationMenuItem
             // 
-            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem, spirographeMenuItem, sourisClavierMenuItem, explorateurWindowsMenuItem, bdDonneesMenuItem });
+            applicationMenuItem.DropDownItems.AddRange(new ToolStripItem[] { editeurMenuItem, permutationMenuItem, spirographeMenuItem, sourisClavierMenuItem, explorateurWindowsMenuItem, bdDonneesMenuItem, histogrammeMenuItem });
             applicationMenuItem.Name = "applicationMenuItem";
             applicationMenuItem.Size = new Size(100, 24);
             applicationMenuItem.Text = "Application";
@@ -131,6 +133,13 @@
             explorateurWindowsMenuItem.Text = "Explorateur Windows";
             explorateurWindowsMenuItem.Click += explorateurWindowsMenuItem_Click;
             // 
+            // bdDonneesMenuItem
+            // 
+            bdDonneesMenuItem.Name = "bdDonneesMenuItem";
+            bdDonneesMenuItem.Size = new Size(233, 26);
+            bdDonneesMenuItem.Text = "Base de donnees";
+            bdDonneesMenuItem.Click += bdDonneesMenuItem_Click;
+            // 
             // aideMenuItem
             // 
             aideMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aProposMenuItem1 });
@@ -145,12 +154,12 @@
             aProposMenuItem1.Text = "A propos";
             aProposMenuItem1.Click += aProposMenuItem1_Click;
             // 
-            // bdDonneesMenuItem
+            // histogrammeMenuItem
             // 
-            bdDonneesMenuItem.Name = "bdDonneesMenuItem";
-            bdDonneesMenuItem.Size = new Size(233, 26);
-            bdDonneesMenuItem.Text = "Base de donnees";
-            bdDonneesMenuItem.Click += bdDonneesMenuItem_Click;
+            histogrammeMenuItem.Name = "histogrammeMenuItem";
+            histogrammeMenuItem.Size = new Size(233, 26);
+            histogrammeMenuItem.Text = "Histogramme";
+            histogrammeMenuItem.Click += histogrammeMenuItem_Click;
             // 
             // fichier_principal
             // 
@@ -185,5 +194,7 @@
         private ToolStripMenuItem sourisClavierMenuItem;
         private ToolStripMenuItem explorateurWindowsMenuItem;
         private ToolStripMenuItem bdDonneesMenuItem;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private ToolStripMenuItem histogrammeMenuItem;
     }
 }
