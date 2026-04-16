@@ -83,5 +83,11 @@ namespace proj_event_app
             Form ecran_histogramme = new ecranHistogramme();
             ecran_histogramme.ShowDialog();
         }
+
+        private void integrationMenuItem_Click(object sender, EventArgs e)
+        {
+            Form ecran_integration = new ecranIntegration();
+            ecran_integration.ShowDialog();
+        }
     }
 }
